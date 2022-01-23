@@ -1,0 +1,12 @@
+docker build -t add-item .
+docker run -dp 3000:3000 add-item
+http://127.0.0.1:3000/
+
+D:\docker-data\app>docker ps -a
+D:\docker-data\app>docker stop bd39176c013a
+D:\docker-data\app>docker push docker/add-item
+
+docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"
+
+docker volume create todo-db
+docker run -dp 3000:3000 -v todo-db:/etc/todos add-item
